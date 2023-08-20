@@ -31,10 +31,10 @@ class MvcActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mvc)
 
-        numberTv.text = counter.number.toString()
+        changeNumber(counter.number)
         minusBtn.setOnClickListener {
             if (counter.minus()) return@setOnClickListener changeNumber(counter.number)
-            finish()
+            exit()
         }
 
         plusBtn.setOnClickListener {
@@ -45,6 +45,10 @@ class MvcActivity : AppCompatActivity() {
 
     private fun changeNumber(number: Int) {
         numberTv.text = number.toString()
+    }
+
+    private fun exit() {
+        finish()
     }
 
     private fun showMaximumMessage() {
